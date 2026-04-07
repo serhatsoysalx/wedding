@@ -2,7 +2,9 @@
 
 Single-page wedding invitation built with **React 19** and **Vite 8**, styled with **Tailwind CSS 4**. Deployed as a static site (output in `docs/`) for **GitHub Pages**.
 
-Live site: [https://serhatsoysalx.github.io/wedding/](https://serhatsoysalx.github.io/wedding/)
+Live site (current deploy): [https://serhatsoysal.github.io/wedding-inivation/](https://serhatsoysal.github.io/wedding-inivation/)
+
+**New repository:** To publish under `github.com/serhatsoysalx/wedding`, create that empty repo on GitHub, then set `vite.config.js` → `base` to `"/wedding/"`, set `package.json` → `homepage` to `https://serhatsoysalx.github.io/wedding/`, run `npm run build`, commit `docs/`, and push. Use a GitHub account that has push access to `serhatsoysalx/wedding` (HTTPS 403 means the signed-in user cannot push to that org/user).
 
 ## Features
 
@@ -31,13 +33,13 @@ Live site: [https://serhatsoysalx.github.io/wedding/](https://serhatsoysalx.gith
 ## Getting started
 
 ```bash
-git clone https://github.com/serhatsoysalx/wedding.git
-cd wedding
+git clone https://github.com/serhatsoysal/wedding-inivation.git
+cd wedding-inivation
 npm install
 npm run dev
 ```
 
-Dev server defaults to `http://localhost:5173/wedding/` (see `vite.config.js` → `base`).
+Dev server uses the `base` path from `vite.config.js` (currently `/wedding-inivation/`, e.g. `http://localhost:5173/wedding-inivation/`).
 
 ## Scripts
 
@@ -53,7 +55,7 @@ Dev server defaults to `http://localhost:5173/wedding/` (see `vite.config.js` �
 
 2. This project builds **into `docs/`** (`vite.config.js` → `build.outDir: "docs"`). Push the built `docs/` output on the branch GitHub Pages uses.
 
-3. **`base` path** must match the repository name. It is set to `/wedding/` in [`vite.config.js`](vite.config.js). If you rename the repo, update `base` and rebuild.
+3. **`base` path** must match the GitHub Pages URL segment (repository name). Currently `/wedding-inivation/`. For a repo named `wedding`, use `/wedding/` and rebuild.
 
 4. After changing `base`, run `npm run build` and commit the updated `docs/` assets.
 
