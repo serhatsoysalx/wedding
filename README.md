@@ -1,10 +1,10 @@
 # Wedding Invitation
 
-Single-page wedding invitation built with **React 19** and **Vite 8**, styled with **Tailwind CSS 4**. Deployed as a static site (output in `docs/`) for **GitHub Pages**.
+Single-page wedding invitation built with **React 19** and **Vite 8**, styled with **Tailwind CSS 4**. Production build is emitted to **`docs/`** for **GitHub Pages**.
 
-Live site (current deploy): [https://serhatsoysal.github.io/wedding-inivation/](https://serhatsoysal.github.io/wedding-inivation/)
+**Live site:** [https://serhatsoysalx.github.io/wedding/](https://serhatsoysalx.github.io/wedding/)
 
-**New repository:** To publish under `github.com/serhatsoysalx/wedding`, create that empty repo on GitHub, then set `vite.config.js` → `base` to `"/wedding/"`, set `package.json` → `homepage` to `https://serhatsoysalx.github.io/wedding/`, run `npm run build`, commit `docs/`, and push. Use a GitHub account that has push access to `serhatsoysalx/wedding` (HTTPS 403 means the signed-in user cannot push to that org/user).
+**Repository:** [github.com/serhatsoysalx/wedding](https://github.com/serhatsoysalx/wedding)
 
 ## Features
 
@@ -33,13 +33,13 @@ Live site (current deploy): [https://serhatsoysal.github.io/wedding-inivation/](
 ## Getting started
 
 ```bash
-git clone https://github.com/serhatsoysal/wedding-inivation.git
-cd wedding-inivation
+git clone https://github.com/serhatsoysalx/wedding.git
+cd wedding
 npm install
 npm run dev
 ```
 
-Dev server uses the `base` path from `vite.config.js` (currently `/wedding-inivation/`, e.g. `http://localhost:5173/wedding-inivation/`).
+Dev server uses `base` from `vite.config.js` (`/wedding/`), e.g. `http://localhost:5173/wedding/`.
 
 ## Scripts
 
@@ -51,13 +51,11 @@ Dev server uses the `base` path from `vite.config.js` (currently `/wedding-iniva
 
 ## Deployment (GitHub Pages)
 
-1. Repository **Settings → Pages**: source **Deploy from a branch**, branch **`master`** (or `main`), folder **`/ (root)`** if you serve from `docs` via an action, or configure to publish from **`/docs`** on the branch that contains the built `docs/` folder.
+1. **Settings → Pages** — Build and deployment: **Deploy from a branch**. Branch **`master`** (or **`main`**), folder **`/docs`** (this repo ships the built site in `docs/`).
 
-2. This project builds **into `docs/`** (`vite.config.js` → `build.outDir: "docs"`). Push the built `docs/` output on the branch GitHub Pages uses.
+2. **`base`** in [`vite.config.js`](vite.config.js) must stay **`/wedding/`** so asset URLs match `https://serhatsoysalx.github.io/wedding/`.
 
-3. **`base` path** must match the GitHub Pages URL segment (repository name). Currently `/wedding-inivation/`. For a repo named `wedding`, use `/wedding/` and rebuild.
-
-4. After changing `base`, run `npm run build` and commit the updated `docs/` assets.
+3. After any change that affects the bundle, run **`npm run build`** and commit the updated **`docs/`** folder before pushing.
 
 ## Project layout
 
@@ -74,7 +72,7 @@ docs/                  # Production build output (GitHub Pages)
 
 ## Configuration notes
 
-- **Maps & venue** — Map URL and address strings live in [`src/components/WeddingInfo.jsx`](src/components/WeddingInfo.jsx) (constant) and [`src/i18n/translations.js`](src/i18n/translations.js).
+- **Maps & venue** — Map URL and address strings in [`src/components/WeddingInfo.jsx`](src/components/WeddingInfo.jsx) and [`src/i18n/translations.js`](src/i18n/translations.js).
 - **Guest upload link** — `GUEST_PHOTO_UPLOAD_URL` in [`src/components/Gallery.jsx`](src/components/Gallery.jsx).
 - **Security** — Client-side measures only (no substitute for server-side auth). Suitable for a public static invite.
 
