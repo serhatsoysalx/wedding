@@ -2,7 +2,7 @@
 
 Single-page wedding invitation built with **React 19** and **Vite 8**, styled with **Tailwind CSS 4**. Production build is emitted to **`docs/`** for **GitHub Pages**.
 
-**Live site:** [https://serhatsoysalx.github.io/wedding/](https://serhatsoysalx.github.io/wedding/)
+**Live site:** [https://ozlemustafadavetiye.com](https://ozlemustafadavetiye.com)
 
 **Repository:** [github.com/serhatsoysalx/wedding](https://github.com/serhatsoysalx/wedding)
 
@@ -39,7 +39,7 @@ npm install
 npm run dev
 ```
 
-Dev server uses `base` from `vite.config.js` (`/wedding/`), e.g. `http://localhost:5173/wedding/`.
+Dev server runs at `http://localhost:5173/`.
 
 ## Scripts
 
@@ -51,9 +51,9 @@ Dev server uses `base` from `vite.config.js` (`/wedding/`), e.g. `http://localho
 
 ## Deployment (GitHub Pages)
 
-1. **Settings → Pages** — Build and deployment: **Deploy from a branch**. Branch **`master`** (or **`main`**), folder **`/docs`** (this repo ships the built site in `docs/`).
+1. **Settings → Pages** — Build and deployment: **Deploy from a branch**. Branch **`master`** (or **`main`**), folder **`/docs`**.
 
-2. **`base`** in [`vite.config.js`](vite.config.js) must stay **`/wedding/`** so asset URLs match `https://serhatsoysalx.github.io/wedding/`.
+2. **Custom domain** — `ozlemustafadavetiye.com` is configured via `public/CNAME`. The `base` in [`vite.config.js`](vite.config.js) is set to `"/"` because the site is served from the domain root.
 
 3. After any change that affects the bundle, run **`npm run build`** and commit the updated **`docs/`** folder before pushing.
 
