@@ -39,7 +39,7 @@ export default function App() {
       <Hero t={t} />
       <Story t={t} />
       <WeddingInfo t={t} />
-      <Gallery t={t} />
+      <Gallery language={language} t={t} />
       <FAQ t={t} />
       <Footer t={t} />
     </main>

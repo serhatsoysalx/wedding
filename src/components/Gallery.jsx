@@ -7,7 +7,7 @@ import { categories } from "../data/galleryData";
 const GUEST_PHOTO_UPLOAD_URL =
   "https://drive.google.com/drive/folders/1WeEUMNiHPf_ZbEMTf_zEQ9K4WqFKiWM4";
 
-export default function Gallery({ t }) {
+export default function Gallery({ language, t }) {
   const [modal, setModal] = useState(null);
 
   return (
@@ -105,6 +105,7 @@ export default function Gallery({ t }) {
         <GalleryModal
           mode={modal.mode}
           categoryId={modal.categoryId}
+          language={language}
           onClose={() => setModal(null)}
           t={t}
         />

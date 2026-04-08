@@ -436,6 +436,47 @@ video {
   }
 }
 
+.notebook-flip-scene {
+  perspective: 1400px;
+  perspective-origin: 0% 50%;
+}
+
+.notebook-flipper {
+  transform-style: preserve-3d;
+  transform-origin: left center;
+}
+
+.notebook-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.notebook-face-back {
+  transform: rotateY(180deg);
+}
+
+.notebook-paper {
+  background-color: #f4ebe0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(79, 54, 64, 0.04) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(79, 54, 64, 0.03) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(79, 54, 64, 0.045) 23px,
+      rgba(79, 54, 64, 0.045) 24px
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(79, 54, 64, 0.06);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
