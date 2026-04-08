@@ -58,7 +58,16 @@ export default function Hero({ t }) {
               ))}
             </div>
 
-            <button className="mt-5 w-full rounded-xl bg-gradient-to-b from-[#bd6f6b] to-[#9f5a57] px-8 py-3 text-sm font-semibold text-[#f9f2ea] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 sm:mt-6 sm:w-auto sm:px-12 sm:py-3.5 sm:text-base">
+            <button
+              onClick={() => {
+                const el = document.getElementById("wedding-info");
+                if (el) {
+                  const top = el.getBoundingClientRect().top + window.scrollY - 64;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+              }}
+              className="mt-5 w-full rounded-xl bg-gradient-to-b from-[#bd6f6b] to-[#9f5a57] px-8 py-3 text-sm font-semibold text-[#f9f2ea] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100 sm:mt-6 sm:w-auto sm:px-12 sm:py-3.5 sm:text-base"
+            >
               {t.invitationDetailsButton}
             </button>
           </div>
