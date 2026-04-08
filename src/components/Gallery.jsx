@@ -14,7 +14,7 @@ export default function Gallery({ t }) {
     <>
       <section
         id="photos"
-        className="relative min-h-[calc(100svh-4rem)] bg-gradient-to-b from-[#fcf8f3] to-[#f5ede5] py-16 sm:py-24 lg:py-32"
+        className="relative bg-gradient-to-b from-[#fcf8f3] to-[#f5ede5] py-12 sm:min-h-[calc(100svh-4rem)] sm:py-24 lg:py-32"
       >
         <GalleryAnimations />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

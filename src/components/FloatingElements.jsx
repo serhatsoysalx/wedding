@@ -23,7 +23,7 @@ const flowers = [
 export default function FloatingElements() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-40 hidden overflow-hidden sm:block"
       aria-hidden="true"
     >
       {butterflies.map((b, i) => (
