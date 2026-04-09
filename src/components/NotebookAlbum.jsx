@@ -42,14 +42,14 @@ function AlbumLeftPage({ sentences }) {
 
 function AlbumPhotoFrame({ item }) {
   return (
-    <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-md border border-[#d8c9bc] bg-white shadow-md">
+    <div className="relative flex h-[min(52vh,420px)] w-full min-h-[200px] max-h-[420px] items-center justify-center overflow-hidden rounded-md border border-[#d8c9bc] bg-[#f5f0ea] shadow-md sm:h-[min(48vh,440px)] sm:min-h-[220px] sm:max-h-[440px]">
       <PhotoCorners />
       <ProtectedMedia
         src={item.src}
         type={item.type}
         alt=""
-        className="h-full w-full rounded-sm"
-        objectFit="cover"
+        className="relative z-[1] h-full max-h-full w-full max-w-full rounded-sm"
+        objectFit="contain"
       />
     </div>
   );
@@ -67,7 +67,7 @@ function AlbumSpreadSingle({ item, sentences }) {
         className="album-book-spine album-book-spine--v hidden shrink-0 sm:block"
         aria-hidden="true"
       />
-      <div className="relative z-[1] flex min-h-[220px] flex-1 flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] p-3 shadow-inner sm:min-h-[260px] sm:rounded-l-none sm:border-l-0 lg:min-h-[320px] lg:p-4">
+      <div className="relative z-[1] flex min-h-[220px] flex-1 flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] px-2 py-3 shadow-inner sm:min-h-[260px] sm:rounded-l-none sm:border-l-0 sm:px-3 lg:min-h-[320px] lg:p-4">
         <AlbumPhotoFrame item={item} />
       </div>
     </div>
@@ -208,7 +208,7 @@ export default function NotebookAlbum({ items, language, t }) {
         ) : (
           <div className="album-book-scene rounded-xl">
             <div className="album-book-spread relative rounded-xl bg-[#2a1f1c]/40 p-2 sm:p-3">
-              {/* Alttaki yayılım: sol yazı + sırt + sağda sonraki foto */}
+              {/* Sol yazı + sırt + sağ sütun (içinde altta sonraki, üstte dönen sayfa — menteşe = sırt hizası) */}
               <div className="relative z-0 flex min-h-[240px] flex-col gap-3 sm:min-h-[280px] sm:flex-row sm:items-stretch sm:gap-0">
                 <AlbumLeftPage sentences={sentences} />
                 <div
@@ -219,27 +219,28 @@ export default function NotebookAlbum({ items, language, t }) {
                   className="album-book-spine album-book-spine--v hidden shrink-0 sm:block"
                   aria-hidden="true"
                 />
-                {/* Masaüstü: altta sadece sonraki foto (sağ sayfa) */}
-                <div className="relative z-[1] hidden min-h-0 min-w-0 flex-1 flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] p-3 shadow-inner sm:flex sm:rounded-l-none sm:border-l-0 sm:py-4 lg:py-5">
-                  <AlbumPhotoFrame item={nextItem} />
-                </div>
-              </div>
-
-              {/* Masaüstü: menteşe tam ortada — sağ yarıyı kaplayan gerçek sayfa */}
-              <div
-                className={`album-page-turn hidden sm:flex ${
-                  rotation !== 0 ? "album-page-turn--active" : ""
-                }`}
-                style={{
-                  transform: flipTransformDesktop,
-                  transition: skipTransition
-                    ? "none"
-                    : `transform ${FLIP_DURATION_MS}ms ${FLIP_EASE}, box-shadow ${FLIP_DURATION_MS}ms ${FLIP_EASE}`,
-                }}
-                onTransitionEnd={onFlipTransitionEnd}
-              >
-                <div className="album-page-turn-face flex h-full w-full flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] p-3 shadow-inner sm:rounded-l-none sm:border-l-0 sm:py-4 lg:py-5">
-                  <AlbumPhotoFrame item={current} />
+                <div className="relative z-[1] hidden min-h-0 min-w-0 sm:flex sm:min-w-0 sm:flex-1 sm:flex-col">
+                  <div className="relative flex min-h-[240px] w-full flex-1 flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] px-2 py-3 shadow-inner sm:min-h-[min(360px,55vh)] sm:rounded-l-none sm:border-l-0 sm:px-3 sm:py-4 lg:min-h-0 lg:py-5">
+                    <div className="relative z-0 flex w-full flex-col items-stretch justify-center">
+                      <AlbumPhotoFrame item={nextItem} />
+                    </div>
+                    <div
+                      className={`album-page-turn absolute inset-0 z-[4] flex flex-col justify-center rounded-lg border border-[#e3d6ca]/60 bg-[#f4ebe0] px-2 py-3 shadow-inner sm:rounded-l-none sm:border-l-0 sm:px-3 sm:py-4 lg:py-5 ${
+                        rotation !== 0 ? "album-page-turn--active" : ""
+                      }`}
+                      style={{
+                        transform: flipTransformDesktop,
+                        transition: skipTransition
+                          ? "none"
+                          : `transform ${FLIP_DURATION_MS}ms ${FLIP_EASE}, box-shadow ${FLIP_DURATION_MS}ms ${FLIP_EASE}`,
+                      }}
+                      onTransitionEnd={onFlipTransitionEnd}
+                    >
+                      <div className="album-page-turn-face flex h-full w-full flex-col justify-center">
+                        <AlbumPhotoFrame item={current} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -466,14 +466,8 @@ video {
     0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Sağ sayfa: sol kenar = kitap ortası (sırt) */
+/* Sağ sayfa: menteşe = sütunun sol kenarı (sırta bitişik); kapsayıcı relative + inset-0 */
 .album-page-turn {
-  position: absolute;
-  z-index: 4;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: calc(50% + 1px);
   transform-style: preserve-3d;
   transform-origin: left center;
   backface-visibility: hidden;

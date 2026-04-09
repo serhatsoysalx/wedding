@@ -282,12 +282,12 @@ export default function WeddingInfo({ t }) {
         className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden"
       >
         <img
-          src={assetUrl("story-background.png")}
+          src={assetUrl("info-background.png")}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[20%_center] sm:object-left"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[#fcf8f3]/10" />
+        <div className="absolute inset-0 bg-[#fcf8f3]/15" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <div className="lg:ml-auto lg:max-w-[55%]">
