@@ -12,7 +12,7 @@ export default function Story({ t }) {
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="overflow-hidden rounded-2xl shadow-xl">
               <img
-                src={assetUrl("story-background.png")}
+                src={assetUrl("back-ground.png")}
                 alt={t.storyTitle}
                 className="h-64 w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-80 lg:h-[28rem]"
                 loading="lazy"
